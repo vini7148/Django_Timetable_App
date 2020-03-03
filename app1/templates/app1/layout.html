@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {{ title }}
+    </title>
+
+    <link rel = "icon" type = "image/png" href = "{% static 'app1/images/dark.png' %}">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        .footer {
+        	position: fixed;
+        	left: 0;
+        	bottom: 0;
+        	width: 100%;
+    	}
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+          }
+
+        main {
+            flex: 1 0 auto;
+          }
+
+        h1 {
+            font-size: 6vh;
+        }
+
+        h3 {
+            font-size: 4vh;
+        }
+    </style>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, {
+                direction: 'left'
+            });
+        });
+    </script>
+</head>
+<body>
+
+    {% include "app1/include/navbar.html" %}
+    {% include "app1/include/message.html" %}
+    {% include "app1/include/float.html" %}
+    
+    <div class="container body-content">
+        {% block content %}
+        {% endblock %}
+        <hr/>
+    </div>
+    
+    {% include "app1/include/footer.html" %}
+    
+    <!--<footer class="footer">
+        <p>&copy; {{ year }} - Made by Vinayak</p>
+    </footer>-->
+
+</body>
+</html>

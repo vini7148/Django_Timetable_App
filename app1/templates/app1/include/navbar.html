@@ -1,0 +1,45 @@
+<div class="container">
+  <nav class="grey darken-4 sidenav-trigger">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <a herf="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+        
+          {% if request.user.is_authenticated %}
+            <li><a href="{% if request.user.is_superuser %}/admin {% else %}/user{% endif %}">Logged in as {{ request.user.username }}</a></li>
+            <li><a href="/class">Class</a></li>
+            <li><a href="/classall">All Classes</a></li>
+            <li><a href="/teacher">Teacher</a></li>
+            <li><a href="/logout">Logout</a></li>
+          
+          {% elif not request.user.is_authenticated %}
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+
+          {% endif %}
+        
+        </ul>
+      </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <br>
+    <br>
+      <li><a href="/">Home</a></li>
+      
+      {% if request.user.is_authenticated %}
+          <li><a href="{% if request.user.is_superuser %}/admin {% else %}/user{% endif %}">Logged in as {{ request.user.username }}</a></li>
+          <li><a href="/class">Class</a></li>
+          <li><a href="/classall">All Classes</a></li>
+          <li><a href="/teacher">Teacher</a></li>
+          <li><a href="/logout">Logout</a></li>
+      
+      {% elif not request.user.is_authenticated %}
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+
+      {% endif %}
+  
+    </ul>
+</div>

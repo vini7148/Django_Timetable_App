@@ -1,0 +1,335 @@
+{% extends "app1/layout.html" %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+	<br />
+	<h1 align="center">
+		Class Time Table
+	</h1>
+	<br />
+	<br />
+	<div class="container">
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<br />
+			<button class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Submit
+				<i class="material-icons right">send</i>
+			</button>
+			<br />
+		</form>
+	</div>
+
+	<br />
+	<br />
+
+	{% if tbsh == 0 %}
+		<br />
+	{% endif %}
+
+	{% if tbsh != 0 %}
+		<br />
+				<h3>
+					Time Table for class: {{ data.clno }} {{ data.clse }} {{ data.cltime }}
+				</h3>
+				<table class="highlight striped centered responsive-table">
+					<tr>
+						<th>
+							_____
+						</th>
+						<th>
+							Monday
+						</th>
+						<th>
+							Tuesday
+						</th>
+						<th>
+							Wednesday
+						</th>
+						<th>
+							Thursday
+						</th>
+						<th>
+							Friday
+						</th>
+						<th>
+							Saturday
+						</th>
+						<th>
+							Sunday
+						</th>
+					</tr>
+					<tr>
+						<th>
+							__0__
+						</th>
+						<td>
+							{{ data.m0 }}
+						</td>
+						<td>
+							{{ data.t0 }}
+						</td>
+						<td>
+							{{ data.w0 }}
+						</td>
+						<td>
+							{{ data.h0 }}
+						</td>
+						<td>
+							{{ data.f0 }}
+						</td>
+						<td>
+							{{ data.s0 }}
+						</td>
+						<td>
+							{{ data.u0 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__1__
+						</th>
+						<td>
+							{{ data.m1 }}
+						</td>
+						<td>
+							{{ data.t1 }}
+						</td>
+						<td>
+							{{ data.w1 }}
+						</td>
+						<td>
+							{{ data.h1 }}
+						</td>
+						<td>
+							{{ data.f1 }}
+						</td>
+						<td>
+							{{ data.s1 }}
+						</td>
+						<td>
+							{{ data.u1 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__2__
+						</th>
+						<td>
+							{{ data.m2 }}
+						</td>
+						<td>
+							{{ data.t2 }}
+						</td>
+						<td>
+							{{ data.w2 }}
+						</td>
+						<td>
+							{{ data.h2 }}
+						</td>
+						<td>
+							{{ data.f2 }}
+						</td>
+						<td>
+							{{ data.s2 }}
+						</td>
+						<td>
+							{{ data.u2 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__3__
+						</th>
+						<td>
+							{{ data.m3 }}
+						</td>
+						<td>
+							{{ data.t3 }}
+						</td>
+						<td>
+							{{ data.w3 }}
+						</td>
+						<td>
+							{{ data.h3 }}
+						</td>
+						<td>
+							{{ data.f3 }}
+						</td>
+						<td>
+							{{ data.s3 }}
+						</td>
+						<td>
+							{{ data.u3 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__4__
+						</th>
+						<td>
+							{{ data.m4 }}
+						</td>
+						<td>
+							{{ data.t4 }}
+						</td>
+						<td>
+							{{ data.w4 }}
+						</td>
+						<td>
+							{{ data.h4 }}
+						</td>
+						<td>
+							{{ data.f4 }}
+						</td>
+						<td>
+							{{ data.s4 }}
+						</td>
+						<td>
+							{{ data.u4 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__5__
+						</th>
+						<td>
+							{{ data.m5 }}
+						</td>
+						<td>
+							{{ data.t5 }}
+						</td>
+						<td>
+							{{ data.w5 }}
+						</td>
+						<td>
+							{{ data.h5 }}
+						</td>
+						<td>
+							{{ data.f5 }}
+						</td>
+						<td>
+							{{ data.s5 }}
+						</td>
+						<td>
+							{{ data.u5 }}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							__6__
+						</th>
+						<td>
+							{{ data.m6 }}
+						</td>
+						<td>
+							{{ data.t6 }}
+						</td>
+						<td>
+							{{ data.w6 }}
+						</td>
+						<td>
+							{{ data.h6 }}
+						</td>
+						<td>
+							{{ data.f6 }}
+						</td>
+						<td>
+							{{ data.s6 }}
+						</td>
+						<td>
+							{{ data.u6 }}
+						</td>
+					</tr>
+					{% if data.cltime == "Summer" %}
+						<tr>
+							<th>
+								__7__
+							</th>
+							<td>
+								{{ data.m7 }}
+							</td>
+							<td>
+								{{ data.t7 }}
+							</td>
+							<td>
+								{{ data.w7 }}
+							</td>
+							<td>
+								{{ data.h7 }}
+							</td>
+							<td>
+								{{ data.f7 }}
+							</td>
+							<td>
+								{{ data.s7 }}
+							</td>
+							<td>
+								{{ data.u7 }}
+							</td>
+						</tr>
+						<tr>
+							<th>
+								__8__
+							</th>
+							<td>
+								{{ data.m8 }}
+							</td>
+							<td>
+								{{ data.t8 }}
+							</td>
+							<td>
+								{{ data.w8 }}
+							</td>
+							<td>
+								{{ data.h8 }}
+							</td>
+							<td>
+								{{ data.f8 }}
+							</td>
+							<td>
+								{{ data.s8 }}
+							</td>
+							<td>
+								{{ data.u8 }}
+							</td>
+						</tr>
+					{% endif %}
+				</table>
+
+	{% endif %}
+
+  <br />
+
+  {% elif not request.user.is_authenticated %}
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div align="center">
+	<div class="container card-panel hoverable z-depth-5">
+		<h1 align="center">
+			Error 404 not found
+		</h1>
+		<br />
+		<p>
+			Or you might not be allowed to access this page
+		</p>
+	</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
+  {% endif %}
+
+{% endblock %}
