@@ -129,7 +129,7 @@ def login_re(request):
         request,
         "app1/login.html",
         {
-            'title': "Registeration Page",
+            'title': "Login Page",
             'year': datetime.now().year,
             'form': form
         }
